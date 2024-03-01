@@ -91,7 +91,6 @@
     window.addEventListener('load', headerScrolled)
     onscroll(document, headerScrolled)
   }
-
   /**
    * Back to top button
    */
