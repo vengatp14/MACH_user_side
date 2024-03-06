@@ -152,11 +152,11 @@
                         <div class="accordion-item border-0">
                             <h2 class="accordion-header" id="flush-headingOne">
                                 <button class="accordion-button collapsed p-1 gray fw-bold" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                    aria-controls="flush-collapseOne">
-                                    <i class="bi bi-plus-circle me-2 text-primary icon_size_pluse"></i> Operations
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                        aria-controls="flush-collapseOne">
+                                  <i id="icon" class="bi bi-caret-right-fill me-2 text-primary icon_size_pluse"></i> Operations
                                 </button>
-                            </h2>
+                              </h2>
                             <div id="flush-collapseOne" class="accordion-collapse collapse"
                                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
@@ -205,7 +205,7 @@
                                 <button class="accordion-button collapsed p-1 gray fw-bold" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
                                     aria-controls="flush-collapseTwo">
-                                    <i class="bi bi-plus-circle me-2 text-primary icon_size_pluse"></i>    Emergency
+                                    <i class="bi bi-caret-right-fill me-2 text-primary icon_size_pluse"></i>    Emergency
                                 </button>
                             </h2>
                             <div id="flush-collapseTwo" class="accordion-collapse collapse"
@@ -246,7 +246,7 @@
                                 <button class="accordion-button collapsed p-1 gray fw-bold" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
                                     aria-expanded="false" aria-controls="flush-collapseThree">
-                                    <i class="bi bi-plus-circle me-2 text-primary icon_size_pluse"></i>    Safety
+                                    <i class="bi bi-caret-right-fill me-2 text-primary icon_size_pluse"></i>    Safety
                                 </button>
                             </h2>
                             <div id="flush-collapseThree" class="accordion-collapse collapse"
@@ -294,7 +294,7 @@
                                 <button class="accordion-button collapsed p-1 gray fw-bold" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false"
                                     aria-controls="flush-collapseFour">
-                                    <i class="bi bi-plus-circle me-2 text-primary icon_size_pluse"></i>     Wildlife
+                                    <i class="bi bi-caret-right-fill me-2 text-primary icon_size_pluse"></i>     Wildlife
                                 </button>
                             </h2>
                             <div id="flush-collapseFour" class="accordion-collapse collapse"
@@ -328,7 +328,7 @@
                                 <button class="accordion-button collapsed p-1 gray fw-bold" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false"
                                     aria-controls="flush-collapseFive">
-                                    <i class="bi bi-plus-circle me-2 text-primary icon_size_pluse"></i>  Field/Building Maintenance
+                                    <i class="bi bi-caret-right-fill me-2 text-primary icon_size_pluse"></i>  Field/Building Maintenance
                                 </button>
                             </h2>
                             <div id="flush-collapseFive" class="accordion-collapse collapse"
@@ -367,7 +367,7 @@
                                 <button class="accordion-button collapsed p-1 gray fw-bold" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false"
                                     aria-controls="flush-collapseSix">
-                                    <i class="bi bi-plus-circle me-2 text-primary icon_size_pluse"></i>    Security
+                                    <i class="bi bi-caret-right-fill me-2 text-primary icon_size_pluse"></i>    Security
                                 </button>
                             </h2>
                             <div id="flush-collapseSix" class="accordion-collapse collapse"
@@ -403,7 +403,7 @@
                                 <button class="accordion-button collapsed p-1 gray fw-bold" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven"
                                     aria-expanded="false" aria-controls="flush-collapseSeven">
-                                    <i class="bi bi-plus-circle me-2 text-primary icon_size_pluse"></i>  Firehouse
+                                    <i class="bi bi-caret-right-fill me-2 text-primary icon_size_pluse"></i>  Firehouse
                                 </button>
                             </h2>
                             <div id="flush-collapseSeven" class="accordion-collapse collapse"
@@ -446,7 +446,7 @@
                                 <button class="accordion-button collapsed p-1 gray fw-bold" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#flush-collapseEight"
                                     aria-expanded="false" aria-controls="flush-collapseEight">
-                                    <i class="bi bi-plus-circle me-2 text-primary icon_size_pluse"></i>     Finance
+                                    <i class="bi bi-caret-right-fill me-2 text-primary icon_size_pluse"></i>     Finance
                                 </button>
                             </h2>
                             <div id="flush-collapseEight" class="accordion-collapse collapse"
@@ -1120,6 +1120,34 @@
             verticalSwiping: true
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.accordion-button');
+    
+            buttons.forEach(function(button) {
+                const icon = button.querySelector('.bi');
+    
+                button.addEventListener('click', function() {
+                    toggleIcon(icon);
+                });
+    
+                document.addEventListener('click', function(event) {
+                    if (!button.contains(event.target)) {
+                        icon.classList.replace('bi-caret-down-fill', 'bi-caret-right-fill');
+                    }
+                });
+            });
+    
+            function toggleIcon(icon) {
+                if (icon.classList.contains('bi-caret-right-fill')) {
+                    icon.classList.replace('bi-caret-right-fill', 'bi-caret-down-fill');
+                } else {
+                    icon.classList.replace('bi-caret-down-fill', 'bi-caret-right-fill');
+                }
+            }
+        });
+    </script>
+    
     <script>
         $(document).ready(function () {
             $('.slick-carousel').slick({
